@@ -142,13 +142,14 @@ WAGTAIL_SITE_NAME = "shib"
 # django-shibboleth settings
 SHIB_ATTRIBUTE_MAP = {
 	"HTTP_SHIB_IDENTITY_PROVIDER": (True, "idp"),
-	"HTTP_SHIB_SHARED_TOKEN": (True, "shared_token"),
-	"HTTP_SHIB_CN": (True, "cn"),
-	"HTTP_SHIB_MAIL": (True, "email"),
-	"HTTP_SHIB_GIVENNAME": (False, "first_name"),
-	"HTTP_SHIB_SN": (False, "last_name"),
+	"HTTP_UID": (True, "uid"),
+	"HTTP_CN": (True, "cn"),
+	"HTTP_EPPN": (True, "eduPersonPrincipalName"),
+	"HTTP_GIVENNAME": (False, "givenName"),
+	"HTTP_SN": (False, "sn"),
 }
 
-SHIB_USERNAME = "shared_token"
-SHIB_EMAIL = "email"
+SHIB_USERNAME = "uid"
+SHIB_EMAIL = "eduPersonPrincipalName"
 
+LOGIN_REDIRECT_URL = 'https://shibwagtail-staging.torchboxapps.com/admin/'
