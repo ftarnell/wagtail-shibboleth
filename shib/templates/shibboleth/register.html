@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Register</title>
+  </head>
+  <body>
+    <h2>Register for services</h2>
+    <form method="post" action=".">{% csrf_token %}
+      <div>
+        <p>By registering for this service:</p>
+        <ul>
+          <li>I confirm that I will comply with the AUP, even though we don't have one, because this is only a test site.</li>
+          <li>I consent my Identity Provider to release the following attributes:
+            <ul>
+              {% for name,value in shib_attrs.items %}
+              <li>{{ name }}:     {{ value }}</li>
+              {% endfor %}
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <input type='submit' value='Log in' />
+    </form>
+  </body>
+</html>
